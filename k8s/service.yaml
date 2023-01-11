@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-spring-boot-professor-svc
+spec:
+  selector:
+    app: app-spring-boot-professor
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-spring-boot-professor
+  namespace: default
+  labels:
+    app: app-spring-boot-professor
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: app-spring-boot-professor
+      labels:
+        app: app-spring-boot-professor
+    spec:
+      containers:
+        - name: app-spring-boot-professor
+          image: durellirsd/learningk8s_advance:v0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: app-spring-boot-professor
